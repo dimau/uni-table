@@ -2,12 +2,12 @@ import React from "react";
 import { TableCell } from "../TableCell/TableCell";
 import styles from "./styles.module.css";
 
-export function TableRow() {
+export function TableRow({ entity }) {
   return (
     <tr className={styles.root}>
-      <TableCell content="First cell" />
-      <TableCell content="Really big content for cell" />
-      <TableCell content="One more cell" />
+      {Object.values(entity).map((prop) => (
+        <TableCell key={prop} content={prop} /> // TODO: change key
+      ))}
     </tr>
   );
 }

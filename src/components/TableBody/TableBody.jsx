@@ -2,12 +2,12 @@ import React from "react";
 import { TableRow } from "../TableRow/TableRow";
 import styles from "./styles.module.css";
 
-export function TableBody() {
+export function TableBody({ entities }) {
   return (
     <tbody className={styles.root}>
-      <TableRow />
-      <TableRow />
-      <TableRow />
+      {Object.values(entities).map((entity) => (
+        <TableRow key={entity.id} entity={entity} />
+      ))}
     </tbody>
   );
 }

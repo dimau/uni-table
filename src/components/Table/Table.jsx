@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TableHeader } from "../TableHeader/TableHeader";
 import { TableBody } from "../TableBody/TableBody";
 import styles from "./styles.module.css";
+import { DataWindowContext } from "../../data-window/DataWindow";
 
 export function Table() {
+  const { entities } = useContext(DataWindowContext);
+
   return (
     <table className={styles.root}>
-      <TableHeader />
-      <TableBody />
+      <TableHeader
+        headers={{
+          id: "id",
+          title: "title",
+          description: "description",
+          deadline: "deadline",
+          assignee: "assignee",
+        }}
+      />
+      <TableBody entities={entities} />
     </table>
   );
 }
