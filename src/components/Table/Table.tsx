@@ -4,7 +4,7 @@ import { TableBody } from "../TableBody/TableBody";
 import styles from "./styles.module.css";
 import { DataWindowContext } from "../../data-window/DataWindow";
 
-export function Table() {
+export const Table: React.FC<{}> = () => {
   const { entities } = useContext(DataWindowContext);
 
   return (
@@ -21,4 +21,4 @@ export function Table() {
       <TableBody entities={entities} />
     </table>
   );
-}
+};

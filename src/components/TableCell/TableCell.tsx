@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-export function TableCell({ content }) {
+interface TableCellProps {
+  content: string;
+}
+
+export function TableCell({ content }: TableCellProps) {
   return <td className={styles.root}>{content}</td>;
 }

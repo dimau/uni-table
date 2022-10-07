@@ -1,25 +1,25 @@
 const nanoid = require("nanoid");
 const fastify = require("fastify")({ logger: true });
-const { tasks } = require("./testData");
+const { tasks } = require("./testData.ts");
 
 fastify.get("/tasks", async (request, reply) => {
   reply.header("Access-Control-Allow-Origin", "*");
   return tasks;
 });
 
-fastify.get("/tasks/:id", async (request, reply) => {
+fastify.get("/tasks/:id", async (request) => {
   const { id } = request.params;
   return tasks[id] !== undefined ? tasks[id] : {};
 });
 
-fastify.post("/tasks", async (request, reply) => {
+fastify.post("/tasks", async (request) => {
   const body = request.body;
   const id = nanoid.nanoid();
   body.id = id;
   tasks[id] = body;
 });
 
-fastify.delete("/tasks/:id", async (request, reply) => {
+fastify.delete("/tasks/:id", async (request) => {
   const { id } = request.params;
   if (tasks[id] !== undefined) delete tasks[id];
 });

@@ -1,8 +1,13 @@
 import React from "react";
 import { TableCell } from "../TableCell/TableCell";
 import styles from "./styles.module.css";
+import { Entity } from "../../models";
 
-export function TableRow({ entity }) {
+interface TableRowProps {
+  entity: Entity;
+}
+
+export function TableRow({ entity }: TableRowProps) {
   return (
     <tr className={styles.root}>
       {Object.values(entity).map((prop) => (

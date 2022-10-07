@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-export const DataWindowContext = React.createContext();
+export const DataWindowContext = React.createContext({ entities: {} });
 
-export function DataWindow({ children }) {
+interface DataWindowProps {
+  children: any;
+}
+
+export function DataWindow({ children }: DataWindowProps) {
   // TODO: use Redux or Context
   let [entities, setEntities] = useState({});
   useEffect(() => {
